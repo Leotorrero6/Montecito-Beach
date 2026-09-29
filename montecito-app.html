@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#062a23">
+<title>Montecito Beach | Santa Clara, Coclé</title>
+<meta name="description" content="Arma tu plan en Montecito Beach: ranchos, cabañas, camping y restaurante frente al mar en Santa Clara, Coclé.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#062a23;--lime:#c6f26b;--coral:#ff5a6e;--ink:#12281f;--mut:#66766f;--cream:#fffaf2;--sand:#f3eadb}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:#fff;font:500 1rem/1.55 Manrope,system-ui,sans-serif;overflow:hidden}
+button,input{font:inherit;color:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;margin:0;line-height:1;letter-spacing:-.03em}
+#vid{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:url(https://i.ibb.co/F470tTxc/256.png) center/cover}
+.veil{position:fixed;inset:0;z-index:1;background:linear-gradient(100deg,rgba(6,42,35,.9),rgba(6,42,35,.45) 55%,rgba(6,42,35,.2)),linear-gradient(0deg,rgba(6,42,35,.9),transparent 40%)}
+.app{position:relative;z-index:2;height:100dvh;display:grid;grid-template-rows:auto 1fr auto;padding:calc(14px + env(safe-area-inset-top,0px)) 20px calc(14px + env(safe-area-inset-bottom,0px))}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font:800 1.1rem 'Bricolage Grotesque'}
+.brand img{width:42px;height:42px;border-radius:50%;background:#fff;object-fit:cover}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:99px;border:0;font-weight:700;background:var(--lime);color:var(--bg);transition:.2s}.pill:hover{transform:translateY(-2px)}
+.stage{min-height:0;display:grid;grid-template-columns:1.1fr 460px;gap:40px;align-items:center;max-width:1180px;width:100%;margin:0 auto;overflow:auto;padding:14px 0;scrollbar-width:none}
+.stage::-webkit-scrollbar{display:none}
+.tag{display:inline-block;padding:6px 14px;border:1px solid rgba(255,255,255,.35);border-radius:99px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;backdrop-filter:blur(8px)}
+h1{font-size:clamp(3rem,7.4vw,6.8rem);font-weight:800}h1 em{font-style:normal;color:var(--lime)}
+.sub{font-size:clamp(1rem,1.6vw,1.2rem);max-width:480px;margin:22px 0 22px;color:rgba(255,255,255,.82)}
+.perks{display:flex;flex-wrap:wrap;gap:8px}.perks span{background:rgba(255,255,255,.12);border-radius:99px;padding:6px 13px;font-size:.85rem;backdrop-filter:blur(8px)}
+/* planner */
+.plan{background:rgba(255,250,242,.97);color:var(--ink);border-radius:30px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.plan h2{font-size:1.7rem;margin-bottom:4px}.plan .hint{color:var(--mut);font-size:.92rem;margin:0 0 16px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.ch{display:flex;align-items:center;gap:10px;padding:13px;border-radius:18px;border:2px solid transparent;background:var(--sand);font-weight:700;text-align:left;transition:.2s}
+.ch b{font-size:1.5rem}.ch.on{border-color:var(--coral);background:#fff}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid rgba(18,40,31,.1);font-weight:600}
+.row small{display:block;color:var(--mut);font-weight:500}
+.st{display:flex;align-items:center;gap:12px}.st button{width:38px;height:38px;border-radius:50%;border:0;background:var(--sand);font-size:1.3rem;font-weight:700}.st b{min-width:22px;text-align:center}
+input[type=date]{border:2px solid var(--sand);background:#fff;border-radius:12px;padding:8px 10px;color:var(--ink);max-width:170px}
+.opts{display:grid;gap:8px;margin:10px 0}
+.op{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:var(--sand);border:2px solid transparent;text-align:left;font-weight:700;width:100%}
+.op.on{border-color:var(--coral);background:#fff}.op small{display:block;font-weight:500;color:var(--mut)}.op span{white-space:nowrap;color:var(--coral)}
+.tot{margin-top:12px;background:var(--bg);color:#fff;border-radius:20px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tot small{opacity:.7;display:block;font-weight:500}.tot strong{font:800 2rem 'Bricolage Grotesque';color:var(--lime)}
+.go{width:100%;margin-top:12px;min-height:54px;border:0;border-radius:99px;background:var(--coral);color:#fff;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.note{font-size:.76rem;color:var(--mut);margin:10px 0 0;text-align:center}
+.warn{color:var(--coral);font-size:.85rem;font-weight:700;margin:4px 0}
+/* dock */
+.dock{display:flex;justify-content:center;gap:6px;padding:6px;margin:0 auto;background:rgba(6,42,35,.72);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.18);border-radius:99px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.dock::-webkit-scrollbar{display:none}
+.dk{flex:none;display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:99px;border:0;background:transparent;font-weight:700;font-size:.9rem;transition:.2s}
+.dk:hover,.dk.on{background:#fff;color:var(--bg)}
+/* sheet */
+.bd{position:fixed;inset:0;z-index:5;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.3s}.bd.on{opacity:1;pointer-events:auto}
+.sh{position:fixed;z-index:6;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--cream);color:var(--ink);transform:translateX(105%);transition:.4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;border-radius:30px 0 0 30px}
+.sh.on{transform:none}
+.shh{display:flex;justify-content:space-between;align-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) 24px 12px}.shh h2{font-size:2rem}
+.x{width:44px;height:44px;border-radius:50%;border:0;background:var(--sand);font-size:1.3rem}
+.shb{overflow:auto;padding:6px 24px calc(30px + env(safe-area-inset-bottom,0px));flex:1}
+.cd{display:grid;grid-template-columns:150px 1fr;gap:14px;background:#fff;border-radius:22px;overflow:hidden;margin-bottom:14px;box-shadow:0 8px 24px rgba(18,40,31,.08)}
+.cd .im{background-size:cover;background-position:center;min-height:150px}.cd .tx{padding:14px 14px 14px 0}
+.cd h3{font-size:1.2rem}.cd p{margin:4px 0 8px;color:var(--mut);font-size:.88rem}.cd .pr{font:800 1.4rem 'Bricolage Grotesque';color:var(--coral)}.cd .pr small{font:500 .78rem Manrope;color:var(--mut)}
+.mini{margin-top:8px;border:0;border-radius:99px;background:var(--bg);color:#fff;padding:9px 16px;font-weight:700;font-size:.85rem}
+.box{background:var(--bg);color:#fff;border-radius:22px;padding:20px;margin-bottom:14px}.box p{margin:6px 0 0;color:rgba(255,255,255,.75)}
+.gal{columns:3 150px;column-gap:10px}.gal button{display:block;width:100%;margin:0 0 10px;padding:0;border:0;border-radius:16px;overflow:hidden}.gal img{width:100%}
+.menu div{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(18,40,31,.12);font:800 1.4rem 'Bricolage Grotesque'}.menu span{color:var(--coral)}
+details{background:#fff;border-radius:18px;padding:0 18px;margin-bottom:8px}summary{padding:15px 0;font-weight:700;cursor:pointer}details p{color:var(--mut);margin:0 0 14px;font-size:.93rem}
+iframe{width:100%;height:340px;border:0;border-radius:22px;margin-bottom:14px}
+.link{display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:16px;margin-bottom:8px;font-weight:700}
+.lb{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.92);display:none;place-items:center;padding:16px}.lb.on{display:grid}.lb img{max-width:100%;max-height:90dvh;border-radius:14px}
+@media(max-width:900px){
+.app{padding-inline:16px}.stage{grid-template-columns:1fr;gap:22px;align-items:start;align-content:start}
+h1{font-size:clamp(2.6rem,13vw,4rem)}.sub{margin:14px 0}.tag{margin-bottom:12px}.perks{display:none}
+.brand span{display:none}.veil{background:linear-gradient(180deg,rgba(6,42,35,.75),rgba(6,42,35,.6) 50%,rgba(6,42,35,.92))}
+.sh{top:auto;left:0;width:100%;height:90dvh;border-radius:30px 30px 0 0;transform:translateY(105%)}
+.cd{grid-template-columns:110px 1fr}.plan{padding:20px}}
+@media(max-width:380px){.chips{gap:8px}.ch{padding:10px;font-size:.88rem}.dk{padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<video id="vid" autoplay muted loop playsinline preload="metadata" poster="https://i.ibb.co/F470tTxc/256.png" aria-hidden="true"><source src="https://www.image2url.com/r2/default/videos/1790650716013-dfac4cf1-29c4-47f8-b368-ecbce2ba8eb4.mp4" type="video/mp4"></video>
+<div class="veil"></div>
+
+<div class="app">
+ <div class="top">
+  <div class="brand"><img src="assets/montecito-logo.png" alt="" onerror="this.style.display='none'"><span>Montecito Beach</span></div>
+  <a class="pill" id="waTop" target="_blank" rel="noopener">💬 WhatsApp</a>
+ </div>
+
+ <main class="stage">
+  <div>
+   <span class="tag">Santa Clara · Coclé</span>
+   <h1>Somos un <em>hogar</em> cerca del mar.</h1>
+   <p class="sub">Pasa el día, come frente a la playa, duerme en una cabaña o acampa bajo las estrellas. Arma tu plan en segundos.</p>
+   <div class="perks"><span>🌊 Frente al mar</span><span>🚗 Estacionamiento</span><span>🚿 Baños y vestidores</span></div>
+  </div>
+  <section class="plan" id="pl" aria-live="polite"></section>
+ </main>
+
+ <nav class="dock" id="dock">
+  <button class="dk on" data-s="">✨ Plan</button>
+  <button class="dk" data-s="dormir">🏡 Dormir</button>
+  <button class="dk" data-s="comer">🍽️ Comer</button>
+  <button class="dk" data-s="fotos">📷 Fotos</button>
+  <button class="dk" data-s="mapa">📍 Llegar</button>
+  <button class="dk" data-s="dudas">❓ Dudas</button>
+ </nav>
+</div>
+
+<div class="bd" id="bd"></div>
+<aside class="sh" id="sh" aria-hidden="true"><div class="shh"><h2 id="st"></h2><button class="x" id="sx" aria-label="Cerrar">×</button></div><div class="shb" id="sb"></div></aside>
+<div class="lb" id="lb"><img id="li" alt=""></div>
+
+<script>
+const $=(q,p=document)=>p.querySelector(q),$$=(q,p=document)=>[...p.querySelectorAll(q)];
+const WA='50765763846',C='https://res.cloudinary.com/rmyuy1ww/image/upload/f_auto,q_auto/';
+const wa=t=>`https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+$('#waTop').href=wa('Hola Montecito Beach 👋 quisiera información.');
+
+const TYPES=[{id:'dia',e:'🏖️',n:'Pasadía'},{id:'dormir',e:'🏡',n:'Cabañas'},{id:'camp',e:'⛺',n:'Camping'},{id:'fiesta',e:'🎉',n:'Evento'}];
+const L=[
+ {id:'v1',n:'Villa Familiar 1 · Coral',max:12,u:'$25 por persona',img:'1-_villafamiliar_-_montecitobeach',d:'Hasta 12 personas · descorche incluido',t:(p)=>25*p},
+ {id:'v2',n:'Villa Familiar 2 · Palma',max:12,u:'$25 por persona',img:'2-_villafamiliar2-motecitobeach',d:'Hasta 12 personas · descorche incluido',t:(p)=>25*p},
+ {id:'br',n:'Cabaña Brisa (madera)',max:4,u:'$165 por noche',img:'3-_caba%C3%B1a-de-madera-montecito-beach',d:'2 camas dobles · hasta 4 personas',t:(p,n)=>165*n},
+ {id:'ho',n:'Cabaña Horizonte (altura)',max:4,u:'$150 / noche (2) · $175 (familiar)',img:'6_1',d:'Privada y en altura · 2 a 4 personas',t:(p,n)=>(p<=2?150:175)*n},
+ {id:'pk',n:'Paquete completo',max:12,u:'$75 por persona',img:'montecitobeach9',d:'Hospedaje + desayuno + almuerzo',t:(p)=>75*p}];
+const S={t:null,date:'',p:2,n:1,pick:{dormir:'v1',camp:'own'}};
+const today=(()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)})();
+
+function calc(){
+ if(S.t==='dormir'){const o=L.find(x=>x.id===S.pick.dormir);return{name:o.n,total:o.t(S.p,S.n),over:S.p>o.max?o.max:0}}
+ if(S.t==='camp'){return S.pick.camp==='own'?{name:'Camping · tu propia carpa',total:10*S.p}:{name:'Camping · alquiler de carpa (2 personas)',total:40*Math.ceil(S.p/2)}}
+ return{name:S.t==='dia'?'Pasadía en rancho':'Evento / celebración',total:null};
+}
+const step=(k,v,min)=>`<div class="st"><button data-k="${k}" data-d="-1" aria-label="menos">−</button><b>${v}</b><button data-k="${k}" data-d="1" aria-label="más">+</button></div>`;
+
+function render(){
+ let h=`<h2>Arma tu plan</h2><p class="hint">${S.t?'Ajusta los datos y envíalo por WhatsApp.':'Elige qué quieres vivir y te damos un estimado al instante.'}</p>
+ <div class="chips">${TYPES.map(t=>`<button class="ch ${S.t===t.id?'on':''}" data-t="${t.id}"><b>${t.e}</b>${t.n}</button>`).join('')}</div>`;
+ if(S.t){
+  h+=`<div class="row"><span>Fecha<small>${S.t==='dormir'?'Llegada':'Día de visita'}</small></span><input type="date" id="dt" min="${today}" value="${S.date}"></div>
+  <div class="row"><span>Personas</span>${step('p',S.p)}</div>`;
+  if(S.t==='dormir')h+=`<div class="row"><span>Noches</span>${step('n',S.n)}</div>
+   <div class="opts">${L.map(o=>`<button class="op ${S.pick.dormir===o.id?'on':''}" data-o="${o.id}"><div>${o.n}<small>${o.u}</small></div></button>`).join('')}</div>`;
+  if(S.t==='camp')h+=`<div class="opts"><button class="op ${S.pick.camp==='own'?'on':''}" data-c="own"><div>Traigo mi carpa<small>$10 por persona · 5:30 p.m. – 10:30 a.m.</small></div></button>
+   <button class="op ${S.pick.camp==='rent'?'on':''}" data-c="rent"><div>Alquilar carpa<small>$40 por noche · carpa para 2</small></div></button></div>`;
+  const r=calc();
+  if(r.over)h+=`<div class="warn">⚠️ Esta opción admite hasta ${r.over} personas.</div>`;
+  h+=`<div class="tot"><div><small>${r.name}</small><small>${r.total===null?'Precio a confirmar':'Estimado'}</small></div><strong>${r.total===null?'Consultar':'$'+r.total}</strong></div>`;
+  const msg=`Hola Montecito Beach 👋 Quiero reservar:\n• Plan: ${r.name}\n• Fecha: ${S.date||'por definir'}\n• Personas: ${S.p}${S.t==='dormir'?'\n• Noches: '+S.n:''}${r.total!==null?'\n• Estimado: $'+r.total:''}\n¿Tienen disponibilidad?`;
+  h+=`<a class="go" target="_blank" rel="noopener" href="${wa(msg)}">💬 Enviar por WhatsApp</a><p class="note">Precios referenciales. La reserva se confirma cuando Montecito Beach te responda.</p>`;
+ }
+ $('#pl').innerHTML=h;
+}
+$('#pl').addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.t)S.t=b.dataset.t;
+ else if(b.dataset.k){const k=b.dataset.k;S[k]=Math.max(1,S[k]+ +b.dataset.d)}
+ else if(b.dataset.o)S.pick.dormir=b.dataset.o;
+ else if(b.dataset.c)S.pick.camp=b.dataset.c;
+ render();
+});
+$('#pl').addEventListener('change',e=>{if(e.target.id==='dt'){S.date=e.target.value}});
+
+/* paneles */
+const G=['montecitobeach9','montecitobeach2','montecitobeach5','montecitobeach6','montecitobeach8','montecitobeach17','10_2','montecitobeach1','gente-playa-montecito-beach','visitantes-montecito-beach','ni%C3%B1os-montecito-beach','camping-montecito-beach','ranchitos01-montecito-beach','noche-playa-montecito-beach','ranchitos-gente-montecito-beach_1','gente-juego-montecito-beach','playa-atardecer-montecito-beach','ranchitos2-montecito-beach'];
+const Q=[['¿Debo reservar antes de llegar?','Sí. Recomendamos consultar con al menos 3 días de anticipación, sobre todo en fines de semana y feriados. La reserva se confirma solo cuando Montecito Beach lo indique.'],['¿Qué incluyen las villas y cabañas?','Según la opción: baño interno, WiFi, aire acondicionado, Smart TV y camas dobles. Algunas tienen cocina.'],['¿Enviar el plan confirma mi reserva?','No. Es una solicitud; te confirmamos disponibilidad por WhatsApp.'],['¿Hay estacionamiento, baños y vestidores?','Sí, para clientes y dentro de las instalaciones.'],['¿Qué reglas hay en camping?','Camping de 5:30 p.m. a 10:30 a.m. De noche se permite cooler y barbacoa; de día no. Después de las 10:30 a.m. aplica tarifa de pasadía ($20 por ranchito).'],['¿Dónde están?','En Santa Clara, Coclé, Panamá, frente al mar.']];
+const P={
+ dormir:{t:'Dónde dormir',b:()=>L.map(o=>`<div class="cd"><div class="im" style="background-image:url(${C}${o.img})"></div><div class="tx"><h3>${o.n}</h3><p>${o.d}<br>🚿 WiFi · ❄️ A/C · 📺 Smart TV</p><div class="pr">${o.u.split(' · ')[0].split(' ')[0]} <small>${o.u.replace(/^\$\d+ ?/,'')}</small></div><button class="mini" data-pick="${o.id}">Elegir y cotizar</button></div></div>`).join('')+`<div class="box"><b>⛺ ¿Prefieres acampar?</b><p>Tu propia carpa $10 por persona o alquila una para 2 por $40. Cierra este panel y elige Camping.</p></div>`},
+ comer:{t:'Sabor a Mar',b:()=>`<p style="color:var(--mut)">Nuestro restaurante dentro de Montecito Beach para completar el día frente al mar.</p><div class="menu"><div>Entradas<span>→</span></div><div>Mariscos<span>→</span></div><div>Platos principales<span>→</span></div><div>Bebidas<span>→</span></div></div><a class="pill" style="margin-top:20px;background:var(--bg);color:#fff" target="_blank" rel="noopener" href="${wa('Hola 👋 quisiera ver el menú de Sabor a Mar.')}">Pedir el menú por WhatsApp</a>`},
+ fotos:{t:'Imagínate aquí',b:()=>`<div class="gal">${G.map(g=>`<button data-img="${C}${g}"><img loading="lazy" src="${C}${g}" alt="Montecito Beach"></button>`).join('')}</div>`},
+ mapa:{t:'Cómo llegar',b:()=>`<iframe loading="lazy" title="Mapa" src="https://www.google.com/maps?q=Montecito%20Beach%20Santa%20Clara%20Panama&output=embed"></iframe><a class="link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Montecito+Beach+Santa+Clara+Panama">📍 Abrir en Google Maps</a><a class="link" target="_blank" rel="noopener" href="https://www.instagram.com/montecitobeach_santaclara/">📸 @montecitobeach_santaclara</a><a class="link" target="_blank" rel="noopener" href="${wa('Hola 👋')}">📲 +507 6576-3846</a>`},
+ dudas:{t:'Preguntas frecuentes',b:()=>Q.map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('')}
+};
+const sh=$('#sh'),bd=$('#bd');
+function open(k){
+ if(!k){close();return}
+ $('#st').textContent=P[k].t;$('#sb').innerHTML=P[k].b();$('#sb').scrollTop=0;
+ sh.classList.add('on');bd.classList.add('on');sh.setAttribute('aria-hidden','false');mark(k);
+}
+function close(){sh.classList.remove('on');bd.classList.remove('on');sh.setAttribute('aria-hidden','true');mark('')}
+function mark(k){$$('.dk').forEach(b=>b.classList.toggle('on',b.dataset.s===k))}
+$('#dock').onclick=e=>{const b=e.target.closest('.dk');if(b)open(b.dataset.s)};
+$('#sx').onclick=close;bd.onclick=close;
+$('#sb').onclick=e=>{
+ const p=e.target.closest('[data-pick]');
+ if(p){S.t='dormir';S.pick.dormir=p.dataset.pick;close();render();return}
+ const i=e.target.closest('[data-img]');if(i){$('#li').src=i.dataset.img;$('#lb').classList.add('on')}
+};
+$('#lb').onclick=()=>$('#lb').classList.remove('on');
+addEventListener('keydown',e=>{if(e.key==='Escape'){close();$('#lb').classList.remove('on')}});
+render();
+</script>
+</body>
+</html>
